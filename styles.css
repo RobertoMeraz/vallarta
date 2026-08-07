@@ -49,7 +49,9 @@ body {
     transform: scale(1.1) rotate(-5deg); /* Efecto interactivo al pasar el mouse */
 }
 
-#menu-toggle { display: none; }
+.nav-menu.active {
+    transform: scaleY(1);
+}
 
 .hamburger {
     font-size: 30px;

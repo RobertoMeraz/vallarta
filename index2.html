@@ -8,12 +8,14 @@
 </head>
 <body>
 
+    <!-- Top Dropdown Navbar -->
     <header class="navbar">
         <a href="#" class="nav-brand">
             <img src="images/logo.png" alt="Helados Vallarta Logo">
         </a>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger">☰</label>
+        
+        <!-- Reemplazamos el checkbox por el botón para JS -->
+        <div class="hamburger" id="hamburger">☰</div>
         
         <nav class="nav-menu">
             <a href="#especialidad">Specialty</a>
@@ -28,13 +30,14 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Helados Vallarta</h1>
-            <p>The best ice cream in Ensenada.</p>
+            <p>The best ice cream in Ensenada. 5.0 ⭐</p>
         </div>
         <div class="hero-banner">
             <img src="images/banner.png" alt="Helados Vallarta Banner">
         </div>
     </section>
 
+    <!-- THE SPECIALTY -->
     <section id="especialidad" class="menu-section">
         <h2 class="section-title">Our <span>Specialty</span></h2>
         <div class="grid-menu">
@@ -48,6 +51,7 @@
         </div>
     </section>
 
+    <!-- CREAM POPSICLES -->
     <section id="cremas" class="menu-section">
         <h2 class="section-title">Cream <span>Popsicles</span></h2>
         <div class="grid-menu">
@@ -72,6 +76,7 @@
         </div>
     </section>
 
+    <!-- SANDWICHES & ESKIMOS -->
     <section id="eskimos" class="menu-section">
         <h2 class="section-title">Sandwiches & <span>Eskimos</span></h2>
         <div class="grid-menu">
@@ -102,6 +107,7 @@
         </div>
     </section>
 
+    <!-- WATER POPSICLES -->
     <section id="refrescantes" class="menu-section">
         <h2 class="section-title">Refreshing <span>Popsicles</span></h2>
         <div class="grid-menu">
@@ -126,6 +132,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <img src="images/logo.png" alt="Logo Footer" style="width: 80px; border-radius: 50%; margin-bottom: 10px;">
         <p><strong>📍 Visit us at:</strong> Av. Espinoza 451, Obrera, Local 2 (Plaza Fénix), 22830 Ensenada, B.C.</p>
@@ -137,8 +144,27 @@
     <!-- GLOBAL FLOATING BUTTON (CHASKAMAN CTA) -->
     <a href="contact.html" class="global-cta">
         <div class="speech-bubble">Want to sell<br>our products?</div>
-        <img src="images/Chaskaman.png" alt="Chaskaman" class="chaska-float-global">
+        <img src="images/Chaskaman.png" alt="Chaskaman Mascot" class="chaska-float-global">
     </a>
+
+    <!-- SCRIPT FOR RESPONSIVE MENU -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        // Opens/Closes the menu when clicking the hamburger icon
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Closes the menu automatically when a link is selected
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>

@@ -13,8 +13,9 @@
         <a href="#" class="nav-brand">
             <img src="images/logo.png" alt="Logo Helados Vallarta">
         </a>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger">☰</label>
+        
+        <!-- Reemplazamos el checkbox por un simple botón -->
+        <div class="hamburger" id="hamburger">☰</div>
         
         <nav class="nav-menu">
             <a href="#especialidad">Especialidad</a>
@@ -145,6 +146,25 @@
         <div class="speech-bubble">¿Te interesa vender<br>nuestro producto?</div>
         <img src="images/Chaskaman.png" alt="Chaskaman" class="chaska-float-global">
     </a>
+
+    <!-- SCRIPT PARA EL MENÚ RESPONSIVO -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        // Abre/Cierra el menú al tocar las 3 rayitas
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cierra el menú automáticamente al seleccionar una opción
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
