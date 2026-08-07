@@ -1,0 +1,489 @@
+:root {
+    --dark-green: #005a3c;
+    --light-green: #e5f5f0;
+    --accent-yellow: #FFD100;
+    --accent-red: #E31837;
+    --text-dark: #222;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fcfb;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* --- Menú Desplegable --- */
+.navbar {
+    background-color: var(--dark-green);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Logo del Navbar --- */
+.nav-brand img {
+    height: 85px; /* Aumentamos el tamaño considerablemente */
+    border-radius: 50%;
+    border: 3px solid var(--accent-yellow); /* Borde más notorio */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra para que "salte" del fondo */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: white; /* Por si el logo tiene transparencias, que resalte limpio */
+}
+
+.nav-brand img:hover {
+    transform: scale(1.1) rotate(-5deg); /* Efecto interactivo al pasar el mouse */
+}
+
+#menu-toggle { display: none; }
+
+.hamburger {
+    font-size: 30px;
+    color: var(--accent-yellow);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.hamburger:hover { transform: scale(1.1); }
+
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: var(--accent-yellow);
+    color: var(--dark-green);
+}
+
+.lang-btn-nav {
+    background: var(--accent-yellow);
+    color: var(--dark-green) !important;
+    border-top: none !important;
+}
+
+/* --- Hero Section --- */
+.hero {
+    margin-top: 80px;
+    background: linear-gradient(135deg, var(--dark-green) 0%, #008f5e 100%);
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: var(--accent-yellow);
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.hero-banner { max-width: 700px; margin: 0 auto; }
+
+.hero-banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    animation: zoomIn 1.5s ease-out;
+}
+
+/* --- Secciones y Grid --- */
+.menu-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title span { color: var(--accent-red); }
+
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+}
+
+.menu-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-bottom: 5px solid transparent;
+}
+
+.menu-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-bottom: 5px solid var(--accent-red);
+}
+
+.menu-card img {
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(10px 15px 10px rgba(0,0,0,0.25));
+    transition: transform 0.3s;
+}
+
+.menu-card:hover img { transform: scale(1.1) rotate(3deg); }
+
+.menu-card h3 {
+    font-size: 1.5rem;
+    color: var(--dark-green);
+    margin-bottom: 10px;
+}
+
+.desc-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    height: 45px;
+}
+
+.menu-card.featured {
+    border: 3px solid var(--accent-yellow);
+    background: linear-gradient(to bottom, #ffffff, #fffde7);
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.badge-nitro {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-red);
+    color: white;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(227, 24, 55, 0.4);
+    animation: pulseGlow 2s infinite;
+}
+
+.price-tag {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: var(--accent-yellow);
+    padding: 5px 20px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* --- Botón Flotante Global (Chaskaman) --- */
+.global-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+}
+
+.speech-bubble {
+    background: var(--accent-red);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px 25px 0 25px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin-right: -15px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 20px rgba(227, 24, 55, 0.4);
+    position: relative;
+    animation: pulseGlow 2s infinite;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 15px;
+    border-width: 15px 15px 0 0;
+    border-style: solid;
+    border-color: var(--accent-red) transparent transparent transparent;
+}
+
+.chaska-float-global {
+    width: 120px;
+    animation: floatMascot 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+    transition: transform 0.3s;
+}
+
+.global-cta:hover .chaska-float-global {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* --- Página de Contacto --- */
+.contact-page {
+    padding: 100px 20px 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--light-green) 0%, #a8e6cf 100%);
+}
+
+.contact-box {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+    animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Lado Izquierdo: Información y Chaskaman */
+.contact-info {
+    flex: 1;
+    background: linear-gradient(135deg, var(--dark-green) 0%, #008f5e 100%);
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.contact-info h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--accent-yellow);
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.contact-info p {
+    font-size: 1.15rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: var(--light-green);
+}
+
+.contact-mascot {
+    width: 180px;
+    align-self: center;
+    margin-top: 20px;
+    animation: floatMascot 4s infinite ease-in-out;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4));
+}
+
+/* Lado Derecho: Formulario */
+.contact-form-side {
+    flex: 1;
+    padding: 50px;
+    background: var(--card-bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.back-btn {
+    display: inline-block;
+    color: var(--dark-green);
+    text-decoration: none;
+    font-weight: 900;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateX(-8px);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--dark-green);
+    font-size: 0.95rem;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #fafafa;
+    font-family: inherit;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--accent-red);
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(227, 24, 55, 0.1);
+}
+
+/* Responsive para que en celular el Chaskaman quede arriba y el formulario abajo */
+@media (max-width: 768px) {
+    .contact-box {
+        flex-direction: column;
+    }
+    .contact-info {
+        padding: 40px 30px;
+        text-align: center;
+    }
+    .contact-form-side {
+        padding: 40px 30px;
+    }
+    .contact-mascot {
+        width: 140px;
+    }
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--text-dark);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.ig-link {
+    display: inline-block;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 20px 0;
+    transition: transform 0.3s;
+}
+
+.ig-link:hover { transform: scale(1.1); }
+
+/* --- Animaciones Keyframes --- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes floatMascot {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+}
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(227, 24, 55, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(227, 24, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(227, 24, 55, 0); }
+}
+
+@media (min-width: 769px) {
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        transform: scaleY(1);
+        box-shadow: none;
+    }
+    .nav-menu a { border: none; width: auto; padding: 10px 20px; margin-left: 10px; border-radius: 20px; }
+    .hamburger { display: none; }
+}
+
+@media (max-width: 768px) {
+    .global-cta { bottom: 15px; right: 15px; }
+    .chaska-float-global { width: 90px; }
+    .speech-bubble { font-size: 0.9rem; padding: 10px 15px; margin-bottom: 35px; }
+}
+
+/* --- Estilos del Botón de Enviar --- */
+.submit-btn {
+    background: linear-gradient(45deg, var(--accent-red), #ff4757);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(227, 24, 55, 0.3);
+}

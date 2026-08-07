@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Contact - Helados Vallarta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index2.html" class="nav-brand">
+            <img src="images/logo.png" alt="Helados Vallarta Logo">
+        </a>
+        <nav class="nav-menu" style="transform: scaleY(1); position: static; flex-direction: row; width: auto; box-shadow: none;">
+            <a href="index2.html" style="border: none;">← Back to Menu</a>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-box">
+            
+            <!-- Left Side -->
+            <div class="contact-info">
+                <h2>Join the Vallarta Family</h2>
+                <p>We supply freezers to local businesses. Fill out the form and we'll take care of the rest.</p>
+                <img src="images/Chaskaman.png" alt="Chaskaman Mascot" class="contact-mascot">
+            </div>
+
+            <!-- Right Side (Form with Netlify) -->
+            <div class="contact-form-side">
+                <a href="index2.html" class="back-btn">← Back to Menu</a>
+                
+                <form name="wholesale-en" method="POST" data-netlify="true">
+                    <div class="input-group">
+                        <label>Name or Business</label>
+                        <input type="text" name="name" placeholder="e.g. John's Market" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email address</label>
+                        <input type="email" name="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" placeholder="Your contact number" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Message / Location</label>
+                        <textarea name="message" rows="4" placeholder="Tell us where you are located and what you need..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Request!</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer style="margin-top: 0;">
+        <p>&copy; 2026 Helados Vallarta. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

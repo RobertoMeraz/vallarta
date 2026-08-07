@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto Mayoristas - Helados Vallarta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.png" alt="Logo Helados Vallarta">
+        </a>
+        <nav class="nav-menu" style="transform: scaleY(1); position: static; flex-direction: row; width: auto; box-shadow: none;">
+            <a href="index.html" style="border: none;">← Volver al Menú</a>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-box">
+            
+            <!-- Lado Izquierdo -->
+            <div class="contact-info">
+                <h2>Únete a la familia Vallarta</h2>
+                <p>Surtimos refrigeradores a negocios locales. Llena el formulario y nosotros nos encargamos del resto.</p>
+                <img src="images/Chaskaman.png" alt="Chaskaman" class="contact-mascot">
+            </div>
+
+            <!-- Lado Derecho (Formulario con Netlify) -->
+            <div class="contact-form-side">
+                <a href="index.html" class="back-btn">← Regresar al Menú</a>
+                
+                <form name="mayoristas-es" method="POST" data-netlify="true">
+                    <div class="input-group">
+                        <label>Nombre o Negocio</label>
+                        <input type="text" name="nombre" placeholder="Ej. Abarrotes San Juan" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Correo electrónico</label>
+                        <input type="email" name="correo" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Teléfono</label>
+                        <input type="tel" name="telefono" placeholder="Tu número de contacto" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Mensaje / Ubicación</label>
+                        <textarea name="mensaje" rows="4" placeholder="Cuéntanos dónde estás ubicado y qué necesitas..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">¡Enviar!</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer style="margin-top: 0;">
+        <p>&copy; 2026 Helados Vallarta. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
